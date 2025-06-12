@@ -1,5 +1,5 @@
 // middleware/validation.js
-// const { ValidationError } = require('../errors/customErrors');
+const { ValidationError } = require('../errors/customErrors.js');
 
 function validateProduct(req, res, next) {
   const { name, description, price, category, inStock } = req.body;
@@ -10,8 +10,8 @@ function validateProduct(req, res, next) {
     typeof category !== 'string' ||
     typeof inStock !== 'boolean'
   ) {
-    // throw new ValidationError('Invalid product data');
-    return res.status(400).json({ error: 'Invalid product data' });
+    throw new ValidationError('Invalid product data');
+    // return res.status(400).json({ error: 'Invalid product data' });
   }
   next();
 }

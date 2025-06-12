@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 5678;
 const mainRoute = require('./src/routes/mainRoute.js');
 const productRoute = require('./src/routes/productRoute.js');
 // const authRoute = require('./src/routes/authRoute.js');
-const requestLogger = require('./src/middleware/logger.js');
+// const requestLogger = require('./src/middleware/logger.js');
 // const authMiddleware = require('./src/middleware/authMiddleware.js');
 // const errorHandler = require('./src/middleware/errorHandler.js');
 
@@ -85,6 +85,18 @@ app.use("/api/products", productRoute);
 // - Error handling
 
 // Start the server
+
+
+
+
+// globlal middleware for logging err
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  const status = err.status || 500;
+  res.status(status).json({ error: err.message || 'Internal Server Error' });
+});
+
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 
