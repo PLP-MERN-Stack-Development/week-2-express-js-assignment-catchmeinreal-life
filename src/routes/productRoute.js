@@ -38,9 +38,11 @@ const authMiddleware = require('../middleware/auth.js'); // Assuming you have an
 // router.use(express.json());
 // Middleware to log requests
 router.use(logger);
-
 // Middleware to authenticate requests (if needed)
 router.use(authMiddleware);
+// middleware to handle validation
+const { validateProduct } = require('../middleware/validation.js'); // Assuming you have a validation middleware
+// router.use(validateProduct); // Apply validation middleware to all product routes
 
 // route implementation for GET /api/products 
 // GET /api/products  Get all products
@@ -61,7 +63,7 @@ router.get('/:id', (req, res) => {
 })
 
 // `POST /api/products`: Create a new product
-router.post('/', (req, res) => {
+router.post('/', validateProduct, (req, res) => {
     const newProduct = req.body;
     
     // Validate the product data
@@ -82,7 +84,7 @@ router.post('/', (req, res) => {
 });
 
 // PUT /api/products/:id - Update a product
-router.put('/:id', (req, res) => {
+router.put('/:id', validateProduct, (req, res) => {
     const productId = req.params.id;
     const updatedProduct = req.body;
     
@@ -102,7 +104,7 @@ router.put('/:id', (req, res) => {
 
 // DELETE /api/products/:id - Delete a product
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', validateProduct, (req, res) => {
     const productId = req.params.id;
     
     // Find the product to delete
