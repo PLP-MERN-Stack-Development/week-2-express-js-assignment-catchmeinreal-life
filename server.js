@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5678;
 
 //routes
 const mainRoute = require('./src/routes/mainRoute.js');
-// const productRoute = require('./src/routes/productRoute.js');
+const productRoute = require('./src/routes/productRoute.js');
 // const authRoute = require('./src/routes/authRoute.js');
 // const errorHandler = require('./src/middleware/errorHandler.js');
 
@@ -24,7 +24,7 @@ app.use(express.json());
 
 
 app.use("/main", mainRoute);
-// app.use("/api/products", productRoute);
+app.use("/api/products", productRoute);
 //app.use("/api/auth", authRoute);
 
 // Middleware setup
