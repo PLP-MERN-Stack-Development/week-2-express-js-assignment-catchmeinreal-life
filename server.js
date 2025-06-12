@@ -20,6 +20,7 @@ const requestLogger = require('./src/middleware/logger.js');
 // Middleware to parse JSON requests
 app.use(express.json());
 // app.use(bodyParser.json());
+
 // Middleware to serve static files (if needed)
 // app.use(express.static('public'));
 // app.use(express.static('views'));
