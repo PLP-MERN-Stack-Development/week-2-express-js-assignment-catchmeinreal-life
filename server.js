@@ -2,48 +2,67 @@
 
 // Import required modules
 const express = require('express');
-const bodyParser = require('body-parser');
-const { v4: uuidv4 } = require('uuid');
+// const bodyParser = require('body-parser');
+// const { v4: uuidv4 } = require('uuid');
 
 // Initialize Express app
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5678;
+
+//routes
+const mainRoute = require('./src/routes/mainRoute.js');
+// const productRoute = require('./src/routes/productRoute.js');
+// const authRoute = require('./src/routes/authRoute.js');
+// const errorHandler = require('./src/middleware/errorHandler.js');
+
+// Middleware to parse JSON requests
+app.use(express.json());
+// app.use(bodyParser.json());
+// Middleware to serve static files (if needed)
+// app.use(express.static('public'));
+// app.use(express.static('views'));
+
+
+app.use("/main", mainRoute);
+// app.use("/api/products", productRoute);
+//app.use("/api/auth", authRoute);
 
 // Middleware setup
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
 // Sample in-memory products database
-let products = [
-  {
-    id: '1',
-    name: 'Laptop',
-    description: 'High-performance laptop with 16GB RAM',
-    price: 1200,
-    category: 'electronics',
-    inStock: true
-  },
-  {
-    id: '2',
-    name: 'Smartphone',
-    description: 'Latest model with 128GB storage',
-    price: 800,
-    category: 'electronics',
-    inStock: true
-  },
-  {
-    id: '3',
-    name: 'Coffee Maker',
-    description: 'Programmable coffee maker with timer',
-    price: 50,
-    category: 'kitchen',
-    inStock: false
-  }
-];
+// let products = [
+//   {
+//     id: '1',
+//     name: 'Laptop',
+//     description: 'High-performance laptop with 16GB RAM',
+//     price: 1200,
+//     category: 'electronics',
+//     inStock: true
+//   },
+//   {
+//     id: '2',
+//     name: 'Smartphone',
+//     description: 'Latest model with 128GB storage',
+//     price: 800,
+//     category: 'electronics',
+//     inStock: true
+//   },
+//   {
+//     id: '3',
+//     name: 'Coffee Maker',
+//     description: 'Programmable coffee maker with timer',
+//     price: 50,
+//     category: 'kitchen',
+//     inStock: false
+//   }
+// ];
 
 // Root route
-app.get('/', (req, res) => {
-  res.send('Welcome to the Product API! Go to /api/products to see all products.');
-});
+// app.get('/', (req, res) => {
+//   console.log("req: made");
+//   res.send('Welcome to the Product API! Go to /api/products to see all products.');
+// });
 
 // TODO: Implement the following routes:
 // GET /api/products - Get all products
@@ -53,9 +72,9 @@ app.get('/', (req, res) => {
 // DELETE /api/products/:id - Delete a product
 
 // Example route implementation for GET /api/products
-app.get('/api/products', (req, res) => {
-  res.json(products);
-});
+// app.get('/api/products', (req, res) => {
+//   res.json(products);
+// });
 
 // TODO: Implement custom middleware for:
 // - Request logging
@@ -65,7 +84,9 @@ app.get('/api/products', (req, res) => {
 // Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
+
+  console.log("play don toliver");
 });
 
 // Export the app for testing purposes
-module.exports = app; 
+// module.exports = app; 
