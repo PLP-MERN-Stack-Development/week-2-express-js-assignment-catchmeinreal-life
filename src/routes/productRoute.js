@@ -30,6 +30,17 @@ let products = [
 const express = require('express');
 const router = express.Router();
 
+// Import necessary modules
+const logger = require('../middleware/logger.js'); // Assuming you have a logger middleware
+// const authMiddleware = require('../middleware/authMiddleware.js'); // Assuming you have an auth middleware
+
+// middleware to parse JSON requests
+// router.use(express.json());
+// Middleware to log requests
+router.use(logger);
+// Middleware to authenticate requests (if needed)
+// router.use(authMiddleware);
+
 // route implementation for GET /api/products 
 // GET /api/products  Get all products
 router.get('/', (req, res) => {

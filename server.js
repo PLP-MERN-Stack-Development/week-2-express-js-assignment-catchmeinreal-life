@@ -13,6 +13,8 @@ const PORT = process.env.PORT || 5678;
 const mainRoute = require('./src/routes/mainRoute.js');
 const productRoute = require('./src/routes/productRoute.js');
 // const authRoute = require('./src/routes/authRoute.js');
+const requestLogger = require('./src/middleware/logger.js');
+// const authMiddleware = require('./src/middleware/authMiddleware.js');
 // const errorHandler = require('./src/middleware/errorHandler.js');
 
 // Middleware to parse JSON requests
