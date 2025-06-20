@@ -5,14 +5,14 @@ Build a RESTful API using Express.js that implements standard CRUD operations, p
 
 ## 📂 Tasks
 
-### Task 1: Express.js Setup
+### Task 1: Express.js Setup  (#dn)
 - Initialize a new Node.js project
 - Install Express.js and required dependencies
 - Create a basic Express server that listens on port 3000
 - Implement a "Hello World" route at the root endpoint
 
 ### Task 2: RESTful API Routes
-- Create a resource called `products` with the following fields:
+- Create a resource called `products` with the following fields: #dn
   - `id` (unique identifier)
   - `name` (string)
   - `description` (string)
