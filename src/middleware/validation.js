@@ -16,5 +16,4 @@ function validateProduct(req, res, next) {
   next();
 }
 
-module.exports = { validateProduct };
-// This middleware validates the product data in the request body
+module.exports = { validateProduct }; // This middleware validates the product data in the request body

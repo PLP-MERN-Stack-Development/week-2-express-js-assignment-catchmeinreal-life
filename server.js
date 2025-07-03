@@ -30,42 +30,7 @@ app.use("/main", mainRoute);
 app.use("/api/products", productRoute);
 //app.use("/api/auth", authRoute);
 
-// Middleware setup
-// app.use(bodyParser.json());
 
-// Sample in-memory products database
-// let products = [
-//   {
-//     id: '1',
-//     name: 'Laptop',
-//     description: 'High-performance laptop with 16GB RAM',
-//     price: 1200,
-//     category: 'electronics',
-//     inStock: true
-//   },
-//   {
-//     id: '2',
-//     name: 'Smartphone',
-//     description: 'Latest model with 128GB storage',
-//     price: 800,
-//     category: 'electronics',
-//     inStock: true
-//   },
-//   {
-//     id: '3',
-//     name: 'Coffee Maker',
-//     description: 'Programmable coffee maker with timer',
-//     price: 50,
-//     category: 'kitchen',
-//     inStock: false
-//   }
-// ];
-
-// Root route
-// app.get('/', (req, res) => {
-//   console.log("req: made");
-//   res.send('Welcome to the Product API! Go to /api/products to see all products.');
-// });
 
 // TODO: Implement the following routes:
 // GET /api/products - Get all products
@@ -74,10 +39,6 @@ app.use("/api/products", productRoute);
 // PUT /api/products/:id - Update a product
 // DELETE /api/products/:id - Delete a product
 
-// Example route implementation for GET /api/products
-// app.get('/api/products', (req, res) => {
-//   res.json(products);
-// });
 
 // TODO: Implement custom middleware for:
 // - Request logging
