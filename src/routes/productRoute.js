@@ -46,7 +46,82 @@ const { validateProduct } = require('../middleware/validation.js'); // middlewar
  * route implementation for /api/products 
  */
 const { getProducts, getProduct, createProduct, updateProduct, deleteProduct } = require('../controllers/productController.js');
-
+/**
+ * @swagger
+ * /api/products:
+ *   get:
+ *     summary: Retrieve a list of Products
+ *     description: Returns a list of all products
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         description: A list of products.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   id:
+ *                     type: string
+ *                     example: '1'
+ *                   name:
+ *                     type: string
+ *                     example: Laptop
+ *                   description:
+ *                     type: string
+ *                     example: High-performance laptop with 16GB RAM
+ *                   price:
+ *                     type: number
+ *                     example: 1200
+ *                   category:
+ *                     type: string
+ *                     example: electronics
+ *                   inStock:
+ *                     type: boolean
+ *                     example: true
+ * /api/products/{id}:
+ *   get:
+ *     summary: Get a product by ID
+ *     description: Returns a single product by its ID
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: The product ID
+ *     responses:
+ *       200:
+ *         description: A single product
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: string
+ *                   example: '1'
+ *                 name:
+ *                   type: string
+ *                   example: Laptop
+ *                 description:
+ *                   type: string
+ *                   example: High-performance laptop with 16GB RAM
+ *                 price:
+ *                   type: number
+ *                   example: 1200
+ *                 category:
+ *                   type: string
+ *                   example: electronics
+ *                 inStock:
+ *                   type: boolean
+ *                   example: true
+ */
 router.get('/', getProducts); // Get all products
 router.get('/:id', getProduct) // Get a specific product by ID
 router.post('/', validateProduct, createProduct); // Create a new product

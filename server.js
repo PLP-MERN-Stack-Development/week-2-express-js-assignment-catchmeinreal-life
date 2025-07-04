@@ -5,6 +5,9 @@ const express = require('express');
 // const bodyParser = require('body-parser');
 // const { v4: uuidv4 } = require('uuid');
 
+//api documentaton with swagger
+const swaggerDocs = require('./swaggerConfig');
+
 // Initialize Express app
 const app = express();
 const PORT = process.env.PORT || 5678;
@@ -24,6 +27,9 @@ app.use(express.json());
 // Middleware to serve static files (if needed)
 // app.use(express.static('public'));
 // app.use(express.static('views'));
+
+// Initialize Swagger
+swaggerDocs(app);
 
 
 app.use("/main", mainRoute);
